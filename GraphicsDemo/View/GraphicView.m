@@ -205,21 +205,17 @@
 }
 
 - (void)setupSwipe {
-    UISwipeGestureRecognizer *left = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(leftSwipe:)];
+    UISwipeGestureRecognizer *left = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(swipeView:)];
     left.direction = UISwipeGestureRecognizerDirectionLeft;
     [self addGestureRecognizer:left];
     
-    UISwipeGestureRecognizer *right = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(rightSwipe:)];
+    UISwipeGestureRecognizer *right = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(swipeView:)];
     right.direction = UISwipeGestureRecognizerDirectionRight;
     [self addGestureRecognizer:right];
 }
 
-- (void)leftSwipe:(UISwipeGestureRecognizer *)swipe {
-    [self.delegate moveView:self withLeftSwipe:swipe];
-}
-
-- (void)rightSwipe:(UISwipeGestureRecognizer *)swipe {
-    [self.delegate moveView:self withRightSwipe:swipe];
+- (void)swipeView:(UISwipeGestureRecognizer *)swipe {
+    [self.delegate moveView:self withSwipe:swipe];
 }
 
 @end

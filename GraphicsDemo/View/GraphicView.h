@@ -24,7 +24,6 @@
 
 @protocol GraphViewDelegate <NSObject>
 
-- (void)moveView:(GraphicView *)view withLeftSwipe:(UISwipeGestureRecognizer *)swipe;
-- (void)moveView:(GraphicView *)view withRightSwipe:(UISwipeGestureRecognizer *)swipe;
+- (void)moveView:(GraphicView *)view withSwipe:(UISwipeGestureRecognizer *)swipe;
 
 @end

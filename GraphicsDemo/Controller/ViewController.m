@@ -70,7 +70,7 @@
 }
 
 - (void)redrawGraphicWithArray:(NSArray *)array {
-    _graphView.graphPoints = [array copy];
+    _graphView.graphPoints = array;
     [_graphView setNeedsDisplay];
 }
 
@@ -125,19 +125,15 @@
 
 #pragma mark - GraphViewDelegate methods
 
-- (void)moveView:(GraphicView *)view withLeftSwipe:(UISwipeGestureRecognizer *)swipe{
+- (void)moveView:(GraphicView *)view withSwipe:(UISwipeGestureRecognizer *)swipe{
     if (swipe.direction == UISwipeGestureRecognizerDirectionLeft && _counter < _tableArray.count-1) {
         _counter++;
         [self swipeGraphViewWithOptions:UIViewAnimationOptionTransitionFlipFromLeft
                                         andCount:_counter];
-    }
-}
-
-- (void)moveView:(GraphicView *)view withRightSwipe:(UISwipeGestureRecognizer *)swipe {
-    if (swipe.direction == UISwipeGestureRecognizerDirectionRight && _counter > 0) {
+    } else if (swipe.direction == UISwipeGestureRecognizerDirectionRight && _counter > 0) {
         _counter--;
         [self swipeGraphViewWithOptions:UIViewAnimationOptionTransitionFlipFromRight
-                                        andCount:_counter];
+                               andCount:_counter];
     }
 }
 
